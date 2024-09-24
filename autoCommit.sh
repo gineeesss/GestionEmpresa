@@ -14,7 +14,7 @@ if [ $? -eq 0 ]; then
     fi
 git push
 
-cd Empresa
+cd ../Empresa
 git pull
 git add .
 git commit -m "Commit s/auto"
