@@ -1,0 +1,2 @@
+1º vez que se ejecute un vagrantfile: vagrant up
+- vagrant ssh : para entrar en la maquina una vez iniciada

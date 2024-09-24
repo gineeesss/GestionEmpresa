@@ -1,0 +1,4 @@
+control asistencia (usar arduino como sensor en silla (simular que toma el peso)) y tambien se puede contar los tecleos
+
+
+crear un formulario (para usar pai en alguna otra app) que cuando registre las contraseñas, las guarde hasheadas
