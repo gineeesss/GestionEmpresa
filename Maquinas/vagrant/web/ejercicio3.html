@@ -7,9 +7,20 @@
 </head>
 <body>
     <form action="ejercicio3b.php" method="post">
+        
         <input type="text" name="ope1" id="operando1" placeholder="Hola"> +
+       
+        <select name="signo" id="signo">
+            <option value="sumar">+</option>
+            <option value="restar">-</option>
+            <option value="multiplicar">*</option>
+            <option value="dividir">/</option>
+        </select>   
+
         <input type="text" name="ope2" id="operando2" placeholder="Hola">
         <input type="submit" value="Enviar">
+
+        <output type="text" name="resultado" id="resultado"></output>
     </form>
 
 </body>
