@@ -6,6 +6,7 @@ $fecha = explode("-", $_GET["fecha"]);
 $dia = $fecha[2];
 $mes = $fecha[1];
 $anio = $fecha[0];
+$edad = $anio - date("Y");  
 switch ($tratamiento) {
     case 'Doctora':
     case 'Sra.':
