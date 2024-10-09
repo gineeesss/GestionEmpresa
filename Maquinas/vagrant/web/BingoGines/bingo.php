@@ -26,6 +26,15 @@ echo "</table>";
 
 ?>
 
+<br><br>
+
+<?php
+$a[] = range(0,99);
+echo count($a);
+var_dump($a);
+
+?>
+
 <!--
 for ($i=1; $i < 99; $i++) { 
     $bingoInicial[] = $i;
