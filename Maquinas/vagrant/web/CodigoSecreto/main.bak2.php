@@ -5,9 +5,9 @@ $NOMBREFICHERO = "palabras.txt";
 $celda = NULL;
 $celdacolor = NULL;
 $celdavisible = NULL;
-creaTablero();
 
 if (!isset($_SESSION["celda"]) || (isset($_GET["resetea"]))) {
+    creaTablero();
 } else {
     $celda = $_SESSION["celda"];
     $celdacolor = $_SESSION["celdacolor"];
@@ -27,29 +27,15 @@ function creaTablero() {
     global $celdacolor;
     global $celdavisible;
 
-    $filename = $_FILES['fileToUpload']['tmp_name'];
-
-    $myfile = fopen($filename, "r") or die("Unable to open file!");
-    $listaPalabras = [];
-    while (!feof($myfile)) {
+// Abre el fichero y carga la lista de palabras
+    $myfile = fopen($NOMBREFICHERO, "r") or die("Unable to open file!");
+    while(!feof($myfile)) {
         $listaPalabras[] = trim(fgets($myfile));
-    }
+      }
     fclose($myfile);
-    $ficha = fopen($NOMBREFICHERO, "r") or die("Unable to open file!");
-    while(!feof($ficha)) {
-        $listaGorda[] = strtolower(trim(fgets($ficha)));
-    }
-    fclose($ficha);
-
-    foreach($listaPalabras as $palabra){
-        if (!in_array($palabra,$listaGorda)){
-        $listaGorda[]=$palabra;
-        $contador = $contador + 1;
-        }
-    }
-
+    
 // Ordena aleatoriamente las palabras    
-    shuffle($listaGorda);
+    shuffle($listaPalabras);
     
 // Ordena aleatoriamente los colores
     $colores = ['white','white','white','white','white','white','white','white','white','white','white', 
@@ -62,7 +48,7 @@ function creaTablero() {
     $contador=0;
     for ($fila=1; $fila<=5; $fila++){
         for ($col=1; $col<=5; $col++){
-            $celda[$fila][$col] = $listaGorda[$contador];
+            $celda[$fila][$col] = $listaPalabras[$contador];
             $celdacolor[$fila][$col] = $colores[$contador];
             $celdavisible[$fila][$col] = FALSE;
             $contador++;
