@@ -1,0 +1,3 @@
+-- Para cambiar la contraseña ---
+
+ssh-keygen -p -f /c/Users/gigin/.ssh/id_rsa
