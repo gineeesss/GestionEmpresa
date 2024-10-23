@@ -9,17 +9,18 @@ apk add php82-phar
 apk add php82-dom php82-fileinfo php82-pdo_sqlite php82-sqlite3
 apk add php82-apache2
 
-apk add phpmyadmin
-apk add mariadb mariadb-client
-/etc/init.d/mariadb setup
-rc-update add mariadb
-rc-service mariadb start
+# apk add phpmyadmin
+# apk add mariadb mariadb-client
+# /etc/init.d/mariadb setup
+# rc-update add mariadb
+# rc-service mariadb start
 # mariadb -u root -e "CREATE USER 'programador'@'%' IDENTIFIED BY 'programador';"
 # mariadb -u root -e "CREATE USER 'programador'@'localhost' IDENTIFIED BY 'programador';"
 # mariadb -u root -e "GRANT ALL PRIVILEGES ON *.* TO 'programador'@'%';"
 # mariadb -u root -e "GRANT ALL PRIVILEGES ON *.* TO 'programador'@'localhost';"
-mariadb -u root -e "ALTER USER 'root'@'localhost' IDENTIFIED BY 'toor';"
-mariadb -u root -ptoor -e "FLUSH PRIVILEGES;"
+# mariadb -u root -e "ALTER USER 'root'@'localhost' IDENTIFIED BY 'toor';"
+# mariadb -u root -ptoor -e "FLUSH PRIVILEGES;"
+
 
 chown -R apache:apache /etc/phpmyadmin
 echo "ServerName apacheserver" >> /etc/apache2/httpd.conf
@@ -65,3 +66,31 @@ curl -LO https://phar.phpunit.de/phpunit-9.6.phar
 chmod +x phpunit-9.6.phar
 mv phpunit-9.6.phar phpunit
 mv phpunit /usr/bin
+
+echo Borramos contenedores ya preexistentes
+docker container stop apachephp phpmyadmin mysqlserver
+docker container rm apachephp phpmyadmin mysqlserver
+
+echo Recreamos la red
+docker network rm netlamp
+docker network create --subnet=172.22.0.0/16 --gateway=172.22.0.1 netlamp
+
+echo Creamos los contenedores 
+docker run -dit \
+--network netlamp \
+-p 3306:3306 \
+--hostname mysqlserver \
+--name mysqlserver \
+-e MYSQL_ROOT_PASSWORD=toor \
+-v $HOME/mysql:/var/lib/mysql \
+--restart unless-stopped \
+mysql:8
+
+docker run -d \
+--network netlamp \
+--hostname phpmyadmin \
+--name phpmyadmin \
+-e PMA_HOST=mysqlserver \
+-p 8080:80 \
+--restart unless-stopped \
+phpmyadmin
