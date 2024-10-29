@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formil</title>
+</head>
+
+<body>
+    <form action="formMoodle.php" method="get">
+
+        <select name="tratamiento" id="tratamiento" required>
+            <option  value="Sr.">Sr.</option>
+            <option value="Sra.">Sra.</option>
+            <option value="Doctor">Doctor</option>
+            <option value="Doctora">Doctora</option>
+            <option selected value="Homúnculo">Homúnculo</option>
+        </select>
+        <input type="text" name="nombre" id="nombre" placeholder="Nombre" required>  
+        <br><br>
+        <input type="text" name="apellidos" id="apellidos" placeholder="Apellidos" required>
+        <br><br>
+        <label for="fecha">Fecha de Nacimiento:</label>
+        <input type="date" id="fecha" name="fecha" required>
+        <br><br>
+        <input type="submit" value="Enviar">
+    </form>
+
+</body>
+
+</html>
