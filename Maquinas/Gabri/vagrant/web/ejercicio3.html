@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Calculadora chufilla</title>
+    </head>
+
+    <body>
+        <!-- Recordar diferencia entre GET y POST -->
+        <form action="ejercicio3b.php" method="get">
+            <input type="text" name="ope1" id="operando1" placeholder="Operando1">
+            <select name="operacion" id="operacion">
+                <option value="sumar">+</option>
+                <option value="restar">-</option>
+                <option value="multiplicar">*</option>
+                <option value="dividir">/</option>
+            </select>
+            <input type="text" name="ope2" id="operando2" placeholder="Operando2">
+            <input type="submit" value="Enviar">
+        </form>
+    </body>
+
+</html>

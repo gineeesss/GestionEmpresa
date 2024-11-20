@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Formulario 101</title>
+    </head>
+
+    <body>
+        <form action="formularios101.php" method="post">
+            <fieldset>
+                <legend>Información personal</legend>
+                <p>
+                    <label for="tratamiento">Tratamiento:</label>
+                    <select name="tratamiento" id="tratamiento">
+                        <option value="señor">Sr.</option>
+                        <option value="señora">Sra.</option>
+                        <option value="goblin">Goblin</option>
+                        <option value="criatura del pantano">Criatura del pantano</option>
+                        <option value="ser del averno">Ser del averno</option>
+                        <option value="mala pécora">Mala pécora</option>
+                    </select>
+                </p>
+                <p>
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" name="nombre" id="nombre">
+                </p>
+                <p>
+                    <label for="apellidos">Apellidos:</label>
+                    <input type="text" name="apellidos" id="apellidos">
+                </p>
+                <p> <!-- Se podría limitar el input:date para que no te deje escoger una fecha superior a la actual, combinando html y php -->
+                    <label for="fecha_nacimiento">Fecha de nacimiento:</label>
+                    <input type="date" id="fecha_nacimiento" name="fecha_nacimiento">
+                </p>
+            </fieldset>
+            <br>
+            <input type="submit" value="Enviar">
+        </form>
+    </body>
+
+</html>
