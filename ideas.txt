@@ -2,3 +2,7 @@ control asistencia (usar arduino como sensor en silla (simular que toma el peso)
 
 
 crear un formulario (para usar pai en alguna otra app) que cuando registre las contraseñas, las guarde hasheadas
+
+
+
+crear una especie de menu iteractivo o yo que sé en una red, ej: abro la carta desde mi ordenador y pido lo que sea, eso va a una tablet en la cocina u otro ordenador que esté en la red, entonces cada usuario de la red local puede pedir o hacer cosas a través de la red
